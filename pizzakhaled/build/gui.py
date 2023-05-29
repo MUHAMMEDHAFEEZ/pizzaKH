@@ -28,11 +28,83 @@ def invo():
     tree.pack()
     win.resizable(False,False)
     win.mainloop()
+    
+    button_new = customtkinter.CTkButton(master=LOGIN,
+                                 #text="LOGIN",
+                                 width=530,
+                                 height=64,
+                                 fg_color=("#1E1E1E","#1E1E1E"),
+                                 border_width=0,
+                                 corner_radius=40,
+                                 text="new",
+                                 command=new_invoice())
+     button_new.pack()
+        
+      button_gen = customtkinter.CTkButton(master=LOGIN,
+                                 #text="LOGIN",
+                                 width=530,
+                                 height=64,
+                                 fg_color=("#1E1E1E","#1E1E1E"),
+                                 border_width=0,
+                                 corner_radius=40,
+                                 text="GEN",
+                                 command=generate_invoice())
+      button_new.pack()
 
 
+
+
+        #new_invice
+invoice_list = []
+def new_invoice():
+    tree.delete(*tree.get_children())
+    
+    invoice_list.clear()
+
+def generate_invoice():
+    doc = DocxTemplate("invoice_template.docx")
+    name = "khaled"
+    phone = "666-666"
+    subtotal = sum(item[3] for item in invoice_list) 
+    salestax = 0.1
+    total = subtotal*(1-salestax)
+    
+    doc.render({"name":name, 
+            "phone":phone,
+            "invoice_list": invoice_list,
+            "subtotal":subtotal,
+            "salestax":str(salestax*100)+"%",
+            "total":total})
+    
+    doc_name = "new_invoice" + name + datetime.datetime.now().strftime("%Y-%m-%d-%H%M%S") + ".docx"
+    doc.save(doc_name)
+    
+    messagebox.showinfo("Invoice Complete", "Invoice Complete")
+    
+   
+    new_invoice()    
+
+def enter_data(qt,descz,pricez,totalz):
+    
+    # Create Table
+    conn = sqlite3.connect('data1.db')
+    table_create_query = '''CREATE TABLE IF NOT EXISTS akado_men 
+            ( descz TEXT, pricez FLOAT, totalz FLOAT )
+    '''
+    conn.execute(table_create_query)
+    
+    # Insert Data
+    data_insert_query = '''INSERT INTO akado_men (qt, descz, pricez, 
+    totalz) VALUES 
+    (?, ?,?)'''
+    data_insert_tuple = ( descz, pricez, totalz)
+    cursor = conn.cursor()
+    cursor.execute(data_insert_query, data_insert_tuple)
+    conn.commit()
+    conn.close()
     
 def check():
-    if entry_user.get()=='mohammedhafeez' and entry_pass.get()=='123':
+    if entry_user.get()=='khaled' and entry_pass.get()=='123':
         LOGIN.destroy()
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
