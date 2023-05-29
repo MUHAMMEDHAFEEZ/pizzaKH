@@ -127,6 +127,129 @@ canvas = Canvas(
 
 canvas.place(x = 0, y = 0)
 
+#add item
+def add_item():
+    global qty
+    if(qty>0):
+         desc = "قصب"
+         price = 10
+         line_total= qty*price
+         invoice_item = [qty, desc, price, line_total]
+         tree.insert('',0, values=invoice_item)
+         enter_data(qty,desc,price,line_total)
+    
+def add_item1():
+    global qty1
+    if(qty1>0):
+         desc = "موز"
+         price = 10
+         line_total= qty*price
+         invoice_item = [qty1, desc, price, line_total]
+         tree.insert('',0, values=invoice_item)
+         enter_data(qty1,desc,price,line_total)
+    
+def add_item2():
+    global qty2
+    if(qty2>0):
+         desc = "بطيخ"
+         price = 10
+         line_total= qty2*price
+         invoice_item = [qty2, desc, price, line_total]
+         tree.insert('',0, values=invoice_item)
+         enter_data(qty2,desc,price,line_total)
+    
+def add_item3():
+    global qty3
+    if(qty3>0):
+         desc = "فراوله"
+         price = 10
+         line_total= qty3*price
+         invoice_item = [qty3, desc, price, line_total]
+         tree.insert('',0, values=invoice_item)
+         enter_data(qty3,desc,price,line_total)
+    
+def add_item4():
+    global qty4
+    if(qty4>0):
+         desc = "مانجا"
+         price = 30
+         line_total= qty4*price
+         invoice_item = [qty4, desc, price, line_total]
+         tree.insert('',0, values=invoice_item)
+         enter_data(qty4,desc,price,line_total)
+    
+def add_item5():
+    global qty5
+    if(qty5>0):
+         desc = "رمان"
+         price = 30
+         line_total= qty5*price
+         invoice_item = [qty5, desc, price, line_total]
+         tree.insert('',0, values=invoice_item)
+         enter_data(qty5,desc,price,line_total)
+    
+def add_item6():
+    global qty6
+    if(qty6>0):
+         desc = "تفاح"
+         price = 20
+         line_total= qty6*price
+         invoice_item = [qty6, desc, price, line_total]
+         tree.insert('',0, values=invoice_item)
+         enter_data(qty6,desc,price,line_total)
+    
+
+
+def add_item7():
+    global qty7
+    if(qty7>0):
+         desc = "اناناس"
+         price = 35
+         line_total= qty7*price
+         invoice_item = [qty7, desc, price, line_total]
+         tree.insert('',0, values=invoice_item)
+         enter_data(qty7,desc,price,line_total)
+    
+def add_item8():
+    global qty8
+    if(qty8>0):
+         desc = "دراجون فروت"
+         price = 10
+         line_total= qty8*price
+         invoice_item = [qty8, desc, price, line_total]
+         tree.insert('',0, values=invoice_item)
+         enter_data(qty8,desc,price,line_total)
+    
+def add_item9():
+    global qty9
+    if(qty9>0):
+         desc = "كيوي"
+         price = 10
+         line_total= qty9*price
+         invoice_item = [qty9, desc, price, line_total]
+         tree.insert('',0, values=invoice_item)
+         enter_data(qty9,desc,price,line_total)
+    
+def add_item10():
+    global qty10
+    if(qty10>0):
+         desc = "برتقال"
+         price = 10
+         line_total= qty10*price
+         invoice_item = [qty10, desc, price, line_total]
+         tree.insert('',0, values=invoice_item)
+         enter_data(qty10,desc,price,line_total)
+    
+def add_item11():
+    global qty11
+    if(qty11>0):
+         desc = "لمون"
+         price = 10
+         line_total= qty11*price
+         invoice_item = [qty11, desc, price, line_total]
+         tree.insert('',0, values=invoice_item)
+         enter_data(qty11,desc,price,line_total)
+  
 image_image_1 = PhotoImage(
     file=relative_to_assets("image_1.png"))
 image_1 = canvas.create_image(
